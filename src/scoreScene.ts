@@ -13,6 +13,7 @@ export class ScoreScene extends Phaser.Scene {
 
     init(params): void {
         this.score = params.starsCaught;
+        document.cookie = `bestScore=${this.score};`;
     }
 
     create(): void {

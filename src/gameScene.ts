@@ -1,5 +1,4 @@
 import "phaser";
-import * as Cookies from 'js-cookie'
 
 export class GameScene extends Phaser.Scene {
     delta: number;
@@ -18,12 +17,20 @@ export class GameScene extends Phaser.Scene {
     }
 
     init(params): void {
-        console.log(Cookies)
-        // const bestScore = Cookies.get("bestScore");
+        const bestScore = parseInt(
+            document.cookie
+                .split(";")
+                .filter(cookie => cookie.indexOf("bestScore") >= 0)[0]
+                .split("=")[1]
+        );
+
+        if (!bestScore && bestScore !== 0) {
+            document.cookie = "bestScore=0";
+        }
 
         this.delta = 1000;
         this.lastStarTime = this.starsCaught = this.starsFallen = 0;
-        this.bestScore = 0;
+        this.bestScore = bestScore ? bestScore : 0;
     }
 
     preload(): void {

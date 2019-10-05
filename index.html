@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Starfall</title>
-    <script src="dist/app.js"></script>
-    <style>
-        #game {
-            display: flex;
-            justify-content: center;
-            align-content: center;
-        }
-    </style>
-  </head>
-  <body>
-    <div id="game" style="margin: auto"></div>
-  </body>
+    <head>
+        <title>Starfall</title>
+        <script src="dist/app.js"></script>
+        <style>
+            body {
+                background: #181a1b;
+            }
+            
+            #game {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+            }
+
+            article {
+                display: flex;
+                justify-content: center;
+                margin: 1rem 0;
+            }
+
+            article span {
+                border: 1px solid greenyellow;
+                padding: 1rem 2rem;
+                border-radius: 0.25rem;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="game" style="margin: auto"></div>
+        <article>
+            <span>We use cookies to save your score on your browser</span>
+        </article>
+    </body>
 </html>
