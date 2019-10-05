@@ -1,4 +1,5 @@
 import "phaser";
+import { getCookie } from "../tools";
 
 export class ScoreScene extends Phaser.Scene {
     score: number;
@@ -13,7 +14,12 @@ export class ScoreScene extends Phaser.Scene {
 
     init(params): void {
         this.score = params.starsCaught;
-        document.cookie = `bestScore=${this.score};`;
+
+        const bestScore = parseInt(getCookie("bestScore"));
+
+        if (this.score > bestScore) {
+            document.cookie = `bestScore=${this.score};`;
+        }
     }
 
     create(): void {

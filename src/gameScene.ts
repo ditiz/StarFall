@@ -1,4 +1,5 @@
 import "phaser";
+import { getCookie } from "../tools";
 
 export class GameScene extends Phaser.Scene {
     delta: number;
@@ -17,12 +18,7 @@ export class GameScene extends Phaser.Scene {
     }
 
     init(params): void {
-        const bestScore = parseInt(
-            document.cookie
-                .split(";")
-                .filter(cookie => cookie.indexOf("bestScore") >= 0)[0]
-                .split("=")[1]
-        );
+        const bestScore = parseInt(getCookie("bestScore"));
 
         if (!bestScore && bestScore !== 0) {
             document.cookie = "bestScore=0";
